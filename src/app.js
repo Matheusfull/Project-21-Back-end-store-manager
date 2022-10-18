@@ -14,6 +14,7 @@ app.use('/products', routers);
 // você pode registrar suas rotas normalmente, como o exemplo acima
 // você deve usar o arquivo index.js para executar sua aplicação 
 module.exports = app;
+<<<<<<< HEAD
 
 /*
 Requisito 1
@@ -23,3 +24,5 @@ Vamos fazer o requisito vindo da camada mais interna para a mais externa
 3 - Os routes
 4 - Depois passar esses routes para o app.js
 */
+=======
+>>>>>>> b820d8046e109f6cd3de5c68a5c3ffb6305b5bf2
