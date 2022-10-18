@@ -7,7 +7,6 @@ const findAllProducts = async () => {
 
 const findByIdProducts = async (productId) => {
   const response = await productsModel.findById(productId);
-  console.log(response);
   if (!response) {
     throw new Error('Id não encontrado');
   }
