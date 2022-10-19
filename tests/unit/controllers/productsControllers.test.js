@@ -24,10 +24,9 @@ describe('Testes na camada controller', function () {
       await productsController.reponseProducts(req, res);
 
       expect(res.status).to.have.been.calledWith(200);
+      // expect(res.json).to.be.deep.equal([{products}])
 
     })
   })
 
 })
-
-/* reponseProductsById */

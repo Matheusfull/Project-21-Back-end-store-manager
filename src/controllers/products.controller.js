@@ -15,7 +15,20 @@ const reponseProductsById = async (req, res) => {
   }
 };
 
+const reponseProductInsert = async (req, res) => {
+  console.log(req);
+  const { name } = req.body;
+  try {
+    const product = await productsService.insertProduct(name);
+    // const productInsert = await productsService.findByIdProducts(Number(insertId));
+    return res.status(201).json(product);
+  } catch (err) {
+    return res.status(422).json({ message: 'product not inserted' });
+  }
+};
+
 module.exports = {
   reponseProducts,
   reponseProductsById,
+  reponseProductInsert,
 };
