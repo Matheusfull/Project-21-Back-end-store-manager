@@ -5,7 +5,7 @@ const findAll = async () => {
     'SELECT * FROM StoreManager.products ORDER BY id',
   );
   return result;
-}; 
+};
 
 const findById = async (productId) => {
   const [[result]] = await connection.execute(
@@ -18,12 +18,20 @@ const insert = async (name) => {
   const [{ insertId }] = await connection.execute(
     'INSERT INTO StoreManager.products (name) VALUES (?)',
     [name],
-);
+  );
   return insertId;
+};
+
+const update = async (name, id) => {
+  const [result] = await connection.execute(
+    'UPDATE StoreManager.products SET name = ? WHERE id = ?', [name, id],
+  );
+  return result;
 };
 
 module.exports = {
   findAll,
   findById,
   insert,
+  update,
 };

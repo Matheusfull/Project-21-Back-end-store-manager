@@ -19,10 +19,21 @@ const reponseProductInsert = async (req, res) => {
   const { name } = req.body;
   try {
     const product = await productsService.insertProduct(name);
-    // const productInsert = await productsService.findByIdProducts(Number(insertId));
     return res.status(201).json(product);
   } catch (err) {
     return res.status(422).json({ message: 'product not inserted' });
+  }
+};
+
+const reponseProductsUpdate = async (req, res) => {
+  console.log('oi oi');
+  const { name } = req.body;
+  const { id } = req.params;
+  try {
+    const productUpdate = await productsService.updateProduct(name, id);
+    res.status(200).json(productUpdate);
+  } catch (err) {
+    res.status(500).json({ message: err });
   }
 };
 
@@ -30,4 +41,5 @@ module.exports = {
   reponseProducts,
   reponseProductsById,
   reponseProductInsert,
+  reponseProductsUpdate,
 };

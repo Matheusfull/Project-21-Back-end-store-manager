@@ -19,8 +19,16 @@ const insertProduct = async (name) => {
   return newProduct;
 };
 
+const updateProduct = async (name, id) => {
+  await productsModel.update(name, id);
+  const productUpdate = await productsModel.findById(id);
+  console.log('to na service');
+  return productUpdate;
+};
+
 module.exports = {
   findAllProducts,
   findByIdProducts,
   insertProduct,
+  updateProduct,
 };
