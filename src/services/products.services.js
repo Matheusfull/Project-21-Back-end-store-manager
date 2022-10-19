@@ -22,8 +22,11 @@ const insertProduct = async (name) => {
 const updateProduct = async (name, id) => {
   await productsModel.update(name, id);
   const productUpdate = await productsModel.findById(id);
-  console.log('to na service');
   return productUpdate;
+};
+
+const deleteProduct = async (productId) => {
+  await productsModel.remove(productId);
 };
 
 module.exports = {
@@ -31,4 +34,5 @@ module.exports = {
   findByIdProducts,
   insertProduct,
   updateProduct,
+  deleteProduct,
 };

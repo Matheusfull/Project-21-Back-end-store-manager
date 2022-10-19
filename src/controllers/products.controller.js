@@ -26,7 +26,6 @@ const reponseProductInsert = async (req, res) => {
 };
 
 const reponseProductsUpdate = async (req, res) => {
-  console.log('oi oi');
   const { name } = req.body;
   const { id } = req.params;
   try {
@@ -37,9 +36,16 @@ const reponseProductsUpdate = async (req, res) => {
   }
 };
 
+const reponseProductsDelete = async (req, res) => {
+  const { id } = req.params;
+  await productsService.deleteProduct(id);
+  res.status(204).end();
+};
+
 module.exports = {
   reponseProducts,
   reponseProductsById,
   reponseProductInsert,
   reponseProductsUpdate,
+  reponseProductsDelete,
 };
